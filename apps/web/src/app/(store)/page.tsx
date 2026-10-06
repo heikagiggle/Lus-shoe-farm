@@ -6,7 +6,8 @@ import { store } from '@/lib/api';
 export const revalidate = 30;
 
 export default async function Home() {
-  const [slides, collections] = await Promise.all([store.hero().catch(() => []), store.homeCollections().catch(() => [])]);
+ const [slides, collections] = await Promise.all([store.hero(), store.homeCollections()]);
+
   return (
     <>
       <HeroCarousel slides={slides} />

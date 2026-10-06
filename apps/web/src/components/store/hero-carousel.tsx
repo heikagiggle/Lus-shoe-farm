@@ -1,7 +1,6 @@
 'use client';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 import type { Slide } from '@lsf/shared-types';
 import { cn } from '@/lib/utils';
 import { ProductImage } from './product-image';
@@ -33,8 +32,6 @@ export function HeroCarousel({ slides }: { slides: Slide[] }) {
       ))}
       {n > 1 && (
         <>
-          {/* <button aria-label="Previous slide" onClick={() => setI((i - 1 + n) % n)} className="absolute left-2 top-1/2 hidden -translate-y-1/2 rounded-full bg-white/80 p-2 hover:bg-white sm:block"><ChevronLeft /></button>
-          <button aria-label="Next slide" onClick={() => setI((i + 1) % n)} className="absolute right-2 top-1/2 hidden -translate-y-1/2 rounded-full bg-white/80 p-2 hover:bg-white sm:block"><ChevronRight /></button> */}
           <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
             {slides.map((s, idx) => <button key={s.id} aria-label={`Go to slide ${idx + 1}`} aria-current={idx === i} onClick={() => setI(idx)} className={cn('h-2.5 rounded-full transition-all', idx === i ? 'w-7 bg-brand' : 'w-2.5 bg-white/80')} />)}
           </div>
