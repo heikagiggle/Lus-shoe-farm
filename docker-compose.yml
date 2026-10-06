@@ -1,0 +1,11 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: lsf
+      POSTGRES_PASSWORD: lsf
+      POSTGRES_DB: lsf
+    ports: ["5433:5432"]
+    volumes: [lsf_pg:/var/lib/postgresql/data]
+volumes:
+  lsf_pg:

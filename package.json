@@ -1,0 +1,17 @@
+{
+  "name": "lus-shoe-farm",
+  "private": true,
+  "workspaces": [
+    "apps/web",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:web": "npm --workspace apps/web run dev",
+    "dev:api": "cd apps/api && uvicorn app.main:app --reload --port 8000",
+    "db:up": "docker compose up -d db",
+    "seed": "cd apps/api && python -m app.seed"
+  },
+  "dependencies": {
+    "react-icons": "^5.7.0"
+  }
+}
