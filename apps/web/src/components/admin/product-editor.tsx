@@ -9,7 +9,7 @@ import { ImageField } from './image-field';
 import { adm, body } from '@/lib/admin';
 import { cn } from '@/lib/utils';
 
-const CATEGORIES = ['Flat Slippers', 'Sandals', 'Boots', 'Flat Shoes', 'Heel Sandals', 'Stilettos'];
+const CATEGORIES = ["Flats", "Sandals", "Heels", "Boots", "Slippers", "Sneakers"];
 const SIZES = [37, 38, 39, 40, 41, 42, 43];
 interface Row { size: number; color: string; price: number; stock: number }
 
@@ -62,7 +62,7 @@ export function ProductEditor({ product, collections, open, onClose, onSaved }: 
           <Field label="Name"><Input value={name} onChange={(e) => setName(e.target.value)} /></Field>
           <Field label="Category"><Select value={category} onChange={(e) => setCategory(e.target.value)}>{CATEGORIES.map((c) => <option key={c}>{c}</option>)}</Select></Field>
         </div>
-        <Field label="Description"><Textarea rows={3} value={description} onChange={(e) => setDescription(e.target.value)} /></Field>
+        <Field label="Description"><Textarea rows={3} value={description} onChange={(e) => setDescription(e.target.value)} className='resize-none' /></Field>
         <div className="space-y-2"><p className="text-sm font-medium">Images (first is the main photo)</p>
           {images.map((img, i) => <ImageField key={i} value={img} onChange={(v) => setImages((x) => x.map((y, idx) => (idx === i ? v : y)))} />)}
           <Button variant="outline" size="sm" type="button" onClick={() => setImages([...images, ''])}>Add another image</Button></div>

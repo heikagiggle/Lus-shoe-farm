@@ -13,8 +13,7 @@ from ..services.pricing import compute_totals
 from ..utils import new_reference
 
 router = APIRouter(tags=["storefront"])
-CATEGORIES = ["Flat Slippers", "Sandals", "Boots", "Flat Shoes", "Heel Sandals", "Stilettos"]
-
+CATEGORIES = ["Flats", "Sandals", "Boots", "Heels", "Slippers", "Sneakers"]
 
 def _active_products(db: Session):
     return db.query(Product).options(selectinload(Product.variants), selectinload(Product.collections)).filter(

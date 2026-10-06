@@ -64,7 +64,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   return (
     <div className="min-h-screen bg-neutral-50">
       <header className="sticky top-0 z-30 flex h-14 items-center justify-between bg-brand px-4 text-white">
-        <Link href="/admin/orders" className="font-display text-xl italic">Lu&apos;s Shoe Farm · Admin</Link>
+        <Link href="/admin/orders" className="font-display sm:text-xl italic">Lu&apos;s Shoe Farm · Admin</Link>
         <div className="relative flex items-center gap-1">
           <Link href="/admin/messages" aria-label={chatUnread > 0 ? 'Live support, unread messages' : 'Live support'} className="relative rounded-full p-2 hover:bg-white/15">
             <Mail size={20} />

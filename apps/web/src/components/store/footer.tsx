@@ -2,9 +2,10 @@ import Link from 'next/link';
 import { FaInstagram, FaFacebookF, FaTiktok, FaWhatsapp} from 'react-icons/fa';
 
 const cols = [
-   { title: 'Lus Shoe Farm', links: [['All shoes', '#about-us'], ['Careers', '/career'], ['Best Sellers', '/collections/best-sellers'], ['Mature Woman', '/collections/mature-woman']] },
+  { title: 'Lus Shoe Farm', links: [['About Us', '#about-us'], ['Careers', '/career'], ['Best Sellers', '/collections/best-sellers'], ['Mature Woman', '/collections/mature-woman']] },
   { title: 'Shop', links: [['All shoes', '/shop'], ['New Arrivals', '/new-arrivals'], ['Best Sellers', '/collections/best-sellers'], ['Mature Woman', '/collections/mature-woman']] },
-  { title: 'Categories', links: [['Stilettos', '/shop?category=Stilettos'], ['Heel Sandals', '/shop?category=Heel%20Sandals'], ['Sandals', '/shop?category=Sandals'], ['Boots', '/shop?category=Boots']] },
+  { title: 'Categories', links: [['Flats', '/shop?category=Flats'], ['Sandals', '/shop?category=Sandals'], ['Heels', '/shop?category=Heels'], ['Boots', '/shop?category=Boots'], ['Slippers', '/shop?category=Slippers']]},
+
   { title: 'Help', links: [['Refund & Cancellation Policy', '/policies/refund-policy'], ['Privacy Policy', '/policies/privacy-policy'], ['Data Retention Policy', '/policies/data-retention-policy'], ['Terms of Service', '/policies/terms-of-service']] },
 ];
 export function Footer() {

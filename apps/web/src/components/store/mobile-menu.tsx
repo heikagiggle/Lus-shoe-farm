@@ -7,7 +7,7 @@ import { useMounted } from '@/lib/use-mounted';
 const PRIMARY = [
   ['Shop', '/shop'], ['New Arrivals', '/new-arrivals'], ['Best Sellers', '/collections/best-sellers'], ['Mature Woman', '/collections/mature-woman'],
 ];
-const CATEGORIES = ['Flat Slippers', 'Sandals', 'Boots', 'Flat Shoes', 'Heel Sandals', 'Stilettos'];
+const CATEGORIES = ['Flats', 'Sandals', 'Heels', 'Boots', 'Slippers'];
 
 export function MobileMenu({ open, onOpenChange }: { open: boolean; onOpenChange: (o: boolean) => void }) {
   const token = useAuth((s) => s.token);

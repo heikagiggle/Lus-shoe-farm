@@ -8,8 +8,8 @@ class Settings(BaseSettings):
     jwt_secret: str = "change-me"
     jwt_expire_minutes: int = 60 * 12
     cors_origins: str = "http://localhost:3000"
-    admin_email: str = "admin@lushoefarm.com"
-    admin_password: str = "ChangeMe123!"
+    admin_email: str = "str"
+    admin_password: str = "str"
 
     supabase_url: str
     supabase_service_role_key: str

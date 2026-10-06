@@ -66,7 +66,6 @@ def run():
                 v.stock = 0
             refresh_sold_out(sold)
     db.commit()
-    print(f"Seeded. Admin login: {settings.admin_email} / {settings.admin_password}")
 
 
 if __name__ == "__main__":

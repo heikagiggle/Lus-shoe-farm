@@ -21,7 +21,7 @@ export function ProductCard({ product: p }: { product: Product }) {
       {soldOut ? (
         <Button disabled className="mt-3 w-full">Sold Out</Button>
       ) : (
-        <Button className="mt-3 w-full uppercase" onClick={() => openQuickView(p)}>Add to Cart</Button>
+        <Button className="mt-3 w-full uppercase whitespace-nowrap h-8 sm:h-10 text-xs sm:text-sm md:text-base" onClick={() => openQuickView(p)}>Add to Cart</Button>
       )}
     </article>
   );
