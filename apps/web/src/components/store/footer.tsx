@@ -41,7 +41,7 @@ export function Footer() {
           {/* Social icons */}
           <div className="flex items-center gap-3">
             <a
-              href="https://instagram.com/YOUR_USERNAME"
+              href="https://www.instagram.com/lusshoefarm?stkn=bjJmN3A5eHBmcjV0&utm_source=qr"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
