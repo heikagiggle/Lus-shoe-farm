@@ -43,7 +43,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   useEffect(() => {
     if (!ready || isLogin) return;
     loadNotifs(); loadChat();
-    const t = setInterval(() => { loadNotifs(); loadChat(); }, live ? 60000 : 15000); // polling is only a safety net while the socket is up
+    const t = setInterval(() => { loadNotifs(); loadChat(); }, live ? 60000 : 15000); 
     const off = onAdminEvent((d) => {
       if (d.type === 'notification') loadNotifs();
       if (d.type === 'message') loadChat();
