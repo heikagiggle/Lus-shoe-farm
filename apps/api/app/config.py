@@ -4,23 +4,24 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
-    database_url: str = "postgresql+psycopg://lsf:lsf@localhost:5432/lsf"
-    jwt_secret: str = "change-me"
+    database_url: str
+    jwt_secret: str
     jwt_expire_minutes: int = 60 * 12
-    cors_origins: str = "http://localhost:3000"
-    admin_email: str = "str"
-    admin_password: str = "str"
+    cors_origins: str
+
+    admin_email: str 
+    admin_password: str 
 
     supabase_url: str
     supabase_service_role_key: str
     supabase_bucket: str = "uploads"
 
 
-    paystack_secret_key: str = "sk_test_placeholder"
-    paystack_mock: bool = True  # MUST be false in production
+    paystack_secret_key: str 
+    paystack_mock: bool = False
     paystack_base_url: str = "https://api.paystack.co"
 
-    resend_api_key: str = ""  # preferred: sends over HTTPS (works where SMTP ports are blocked)
+    resend_api_key: str = ""  
     smtp_host: str = ""
     smtp_port: int = 587
     smtp_user: str = ""
