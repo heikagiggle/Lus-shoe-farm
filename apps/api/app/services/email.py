@@ -10,17 +10,29 @@ log = logging.getLogger("lsf.email")
 
 
 def _send_resend(to: str, subject: str, body: str) -> None:
+    # Ensure mail_from is clean and stripped of extra quotes/spaces
+    from_address = settings.mail_from.strip().strip("'").strip('"')
+
     try:
         r = httpx.post(
             "https://api.resend.com/emails",
             headers={"Authorization": f"Bearer {settings.resend_api_key}"},
-            json={"from": settings.mail_from, "to": [to], "subject": subject, "text": body},
+            json={
+                "from": from_address,
+                "to": [to],
+                "subject": subject,
+                "text": body,
+            },
             timeout=15,
         )
-        if r.status_code >= 400:  # e.g. unverified domain, bad key, daily cap reached
-            log.error("Resend rejected the email to %s: %s %s", to, r.status_code, r.text[:300])
-    except Exception:  # never fail an order or sign-in because email failed
-        log.exception("Resend request failed")
+        if r.status_code >= 400:
+            log.error("Resend rejected email to %s: Status %s - %s", to, r.status_code, r.text)
+            print(f"\n[RESEND ERROR {r.status_code}]: {r.text}\n", flush=True)
+        else:
+            log.info("Email sent successfully to %s", to)
+    except Exception as e:
+        log.exception("Resend request failed: %s", str(e))
+        print(f"\n[RESEND EXCEPTION]: {str(e)}\n", flush=True)
 
 
 def _send_smtp(to: str, subject: str, body: str) -> None:

@@ -37,6 +37,11 @@ const shipSchema = base.extend({
 });
 const SAVED = 'lsf-checkout-info';
 
+const pickupSchema = base.extend({
+  phone: z.string().regex(/^(\+?234|0)\d{10}$/, 'Enter a Nigerian phone number, e.g. 08012345678'),
+});
+
+
 export default function Checkout() {
   const router = useRouter();
   const { items, clear, sync } = useCart();
@@ -47,7 +52,7 @@ export default function Checkout() {
   const token = useAuth((st) => st.token);
 
   const form = useForm<FormValues>({
-    resolver: (values, ctx, opts) => zodResolver(method === 'ship' ? shipSchema : base)(values, ctx, opts),
+    resolver: (values, ctx, opts) => zodResolver(method === 'ship' ? shipSchema : pickupSchema)(values, ctx, opts),
     defaultValues: { email: '', marketing_opt_in: false, save_info: false, shipping_tier: 'flexible', name: '', phone: '', address: '', city: '', state: 'Lagos' },
   });
   const { register, handleSubmit, watch, reset, formState: { errors } } = form;
@@ -149,7 +154,7 @@ export default function Checkout() {
               <label className="flex items-center gap-2 text-sm"><input type="checkbox" className="accent-[#C71585]" {...register('save_info')} /> Save this information for next time</label>
             </TabsContent>
             <TabsContent value="pickup" className="space-y-3 rounded-md border p-4 text-sm">
-              <p className="font-semibold">Lu&apos;s Shoe Farm Store, Lekki Phase 1, Lagos <span className="ml-2 rounded bg-brand-soft px-2 py-0.5 text-xs text-brand">Free</span></p>
+              <p className="font-semibold">Lu&apos;s Shoe Farm Store, 7up Plaza, Balogun Lagos Island, Lagos <span className="ml-2 rounded bg-brand-soft px-2 py-0.5 text-xs text-brand">Free</span></p>
               <p className="text-neutral-700">We&apos;ll email you when your order is ready. Bring your order number and a valid ID.</p>
               <Field label="Phone (for pickup updates)" error={errors.phone?.message}><Input type="tel" {...register('phone')} /></Field>
             </TabsContent>

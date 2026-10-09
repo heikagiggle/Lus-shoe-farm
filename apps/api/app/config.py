@@ -7,7 +7,7 @@ class Settings(BaseSettings):
     database_url: str
     jwt_secret: str
     jwt_expire_minutes: int = 60 * 12
-    cors_origins: str
+    cors_origins: str = "http://localhost:3000"
 
     admin_email: str 
     admin_password: str 
@@ -26,7 +26,7 @@ class Settings(BaseSettings):
     smtp_port: int = 587
     smtp_user: str = ""
     smtp_password: str = ""
-    mail_from: str = "orders@lushoefarm.com"
+    mail_from: str = "Lu's Shoe Farm <orders@lusshoefarm.com>"
 
     otp_ttl_minutes: int = 10
     otp_resend_seconds: int = 30
@@ -38,7 +38,7 @@ class Settings(BaseSettings):
     free_shipping_threshold: int = 200_000
     flexible_fee: int = 4_750
     priority_fee: int = 7_000
-    pickup_address: str = "Lu's Shoe Farm Store, shop 32 Balogun, Lagos Island, Lagos"
+    pickup_address: str = "Lu's Shoe Farm Store, 7 up plaza, Balogun, Lagos Island, Lagos"
 
 
 settings = Settings()
