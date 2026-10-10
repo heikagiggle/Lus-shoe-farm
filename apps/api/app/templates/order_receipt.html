@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Confirmed - Lu's Shoe Farm</title>
+  </head>
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      font-family: Georgia, &quot;Times New Roman&quot;, serif;
+      color: #171717;
+    "
+  >
+    <table
+      role="presentation"
+      width="100%"
+      cellspacing="0"
+      cellpadding="0"
+      border="0"
+      style="background-color: #f4f4f4"
+    >
+      <tr>
+        <td align="center" style="padding: 32px 12px">
+          <table
+            role="presentation"
+            width="600"
+            cellspacing="0"
+            cellpadding="0"
+            border="0"
+            style="width: 100%; max-width: 600px; background-color: #ffffff"
+          >
+            <!-- Header -->
+            <tr>
+              <td
+                align="center"
+                style="
+                  background-color: #c71585;
+                  color: #ffffff;
+                  padding: 28px 20px;
+                "
+              >
+                <h1
+                  style="
+                    margin: 0;
+                    font-size: 24px;
+                    letter-spacing: 2px;
+                    font-weight: bold;
+                    font-family: Georgia, 'Times New Roman', serif;
+                  "
+                >
+                  LU'S SHOE FARM
+                </h1>
+                <p
+                  style="margin: 8px 0 0; font-size: 11px; letter-spacing: 2px; font-family: Georgia, &quot;Times New Roman&quot;, serif;"
+                >
+                  STEP INTO GREATNESS
+                </p>
+              </td>
+            </tr>
+
+            <!-- Main content -->
+            <tr>
+              <td style="padding: 32px 28px">
+                <h2 style="margin: 0 0 20px; font-size: 20px; color: #171717; font-family: Georgia, &quot;Times New Roman&quot;, serif;">
+                  Order confirmed!
+                </h2>
+
+                <p style="font-size: 15px; line-height: 1.7; color: #444444; font-family: Georgia, &quot;Times New Roman&quot;, serif;">
+                  Hi {{ customer_name }},
+                </p>
+
+                <p style="font-size: 15px; line-height: 1.7; color: #444444; font-family: Georgia, &quot;Times New Roman&quot;, serif;">
+                  Thank you for shopping with Lu's Shoe Farm! Your payment has
+                  been confirmed, and we're getting your order ready.
+                </p>
+
+                <!-- Order reference -->
+                <table
+                  role="presentation"
+                  width="100%"
+                  cellspacing="0"
+                  cellpadding="0"
+                  border="0"
+                  style="margin: 24px 0; background-color: #fdf5fa; font-family: Georgia, &quot;Times New Roman&quot;, serif;"
+                >
+                  <tr>
+                    <td style="padding: 16px">
+                      <p
+                        style="
+                          margin: 0 0 6px;
+                          font-size: 11px;
+                          letter-spacing: 1px;
+                          color: #777777;
+                          font-family: Georgia, &quot;Times New Roman&quot;, serif;
+                        "
+                      >
+                        ORDER REFERENCE
+                      </p>
+                      <p
+                        style="
+                          margin: 0;
+                          font-size: 16px;
+                          font-weight: bold;
+                          color: #c71585;
+                          font-family: Georgia, &quot;Times New Roman&quot;, serif;
+                        "
+                      >
+                        {{ order_reference }}
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Items -->
+                <h3 style="font-size: 17px; margin: 0 0 12px; font-family: Georgia, &quot;Times New Roman&quot;, serif;">Order summary</h3>
+
+                <table
+                  role="presentation"
+                  width="100%"
+                  cellspacing="0"
+                  cellpadding="0"
+                  border="0"
+                >
+                  {% for item in items %}
+                  <tr>
+                    <td
+                      style="padding: 12px 0; border-bottom: 1px solid #eeeeee"
+                    >
+                      <strong>{{ item.name }}</strong><br />
+                      <span style="color: #777777; font-size: 13px; font-family: Georgia, &quot;Times New Roman&quot;, serif;">
+                        Size {{ item.size }} · {{ item.color }} · Qty: {{
+                        item.quantity }}
+                      </span>
+                    </td>
+                    <td
+                      style="
+                        padding: 12px 0;
+                        border-bottom: 1px solid #eeeeee;
+                        text-align: right;
+                        white-space: nowrap;
+                        font-family: Georgia, &quot;Times New Roman&quot;, serif;
+                      "
+                    >
+                      NGN {{ "{:,}".format(item.unit_price * item.quantity) }}
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </table>
+
+                <!-- Totals -->
+                <table
+                  role="presentation"
+                  width="100%"
+                  cellspacing="0"
+                  cellpadding="0"
+                  border="0"
+                  style="margin-top: 20px; font-size: 14px"
+                >
+                  <tr>
+                    <td style="padding: 7px 0; color: #555555; font-family: Georgia, &quot;Times New Roman&quot;, serif;">Subtotal</td>
+                    <td align="right" style="padding: 7px 0; font-family: Georgia, &quot;Times New Roman&quot;, serif;">
+                      NGN {{ subtotal }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 7px 0; color: #555555; font-family: Georgia, &quot;Times New Roman&quot;, serif;">Shipping</td>
+                    <td align="right" style="padding: 7px 0; font-family: Georgia, &quot;Times New Roman&quot;, serif;">
+                      NGN {{ shipping_fee }}
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="padding: 7px 0; color: #555555; font-family: Georgia, &quot;Times New Roman&quot;, serif;">VAT</td>
+                    <td align="right" style="padding: 7px 0; font-family: Georgia, &quot;Times New Roman&quot;, serif;">NGN {{ vat }}</td>
+                  </tr>
+                  <tr>
+                    <td
+                      style="
+                        padding: 16px 0;
+                        border-top: 1px solid #eeeeee;
+                        font-size: 16px;
+                        font-weight: bold;
+                        font-family: Georgia, &quot;Times New Roman&quot;, serif;
+                      "
+                    >
+                      Total
+                    </td>
+                    <td
+                      align="right"
+                      style="
+                        padding: 16px 0;
+                        border-top: 1px solid #eeeeee;
+                        font-size: 16px;
+                        font-weight: bold;
+                        color: #c71585;
+                        font-family: Georgia, &quot;Times New Roman&quot;, serif;
+                      "
+                    >
+                      NGN {{ total }}
+                    </td>
+                  </tr>
+                </table>
+
+                <p
+                  style="
+                    margin: 24px 0 0;
+                    font-size: 14px;
+                    line-height: 1.7;
+                    color: #555555;
+                    font-family: Georgia, &quot;Times New Roman&quot;, serif;
+                  "
+                >
+                  We'll keep you updated when your order ships. Thank you for
+                  choosing Lu's Shoe Farm!
+                </p>
+              </td>
+            </tr>
+
+            <!-- Footer -->
+            <tr>
+              <td
+                style="
+                  background-color: #fafafa;
+                  padding: 24px 20px;
+                  text-align: center;
+                  border-top: 1px solid #eeeeee;
+                "
+              >
+                <p style="margin: 0 0 14px; font-size: 13px; color: #555555; font-family: Georgia, &quot;Times New Roman&quot;, serif;">
+                  Questions? Contact our support team.
+                </p>
+
+                <p
+                  style="
+                    margin: 0 0 18px;
+                    font-size: 12px;
+                    font-weight: bold;
+                    color: #c71585;
+                    font-family: Georgia, &quot;Times New Roman&quot;, serif;
+                  "
+                >
+                  ©Lu's Shoe Farm
+                </p>
+
+                <table
+                  role="presentation"
+                  width="100%"
+                  cellspacing="0"
+                  cellpadding="0"
+                  border="0"
+                >
+                  <tr>
+                    <td align="left" style="font-size: 10px; font-family: Georgia, &quot;Times New Roman&quot;, serif;">
+                      <a
+                        href="https://www.lusshoefarm.com/policies/privacy-policy"
+                        style="color: #c71585; text-decoration: underline"
+                      >
+                        Privacy Policy
+                      </a>
+                    </td>
+                    <td align="right" style="font-size: 10px; font-family: Georgia, &quot;Times New Roman&quot;, serif;">
+                      <a
+                        href="https://www.lusshoefarm.com/policies/terms-of-service"
+                        style="color: #c71585; text-decoration: underline"
+                      >
+                        Terms of Service
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

@@ -98,7 +98,7 @@ export function AccountPortal() {
         {!profile || !orders ? <Skeleton className="h-64 w-full" /> : tab === 'orders' ? (
           orders.length === 0 ? (
             <div className="flex flex-col items-center gap-4 rounded-lg border py-16 text-center">
-              <h1 className="font-display text-3xl italic">Welcome {first}, ready to shop?</h1>
+              <h1 className="font-display text-2xl sm:text-3xl italic">Welcome {first}, ready to shop?</h1>
               <Link href="/shop" className={buttonVariants({ size: 'lg' })}>Shop Now</Link>
             </div>
           ) : (

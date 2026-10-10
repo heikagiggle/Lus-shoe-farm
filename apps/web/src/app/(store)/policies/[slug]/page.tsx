@@ -324,7 +324,7 @@ export default async function Policy({
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-14">
-      <h1 className="font-display text-4xl italic text-brand">
+      <h1 className="font-display text-2xl sm:text-3xl md:text-4xl italic text-brand">
         {p.title}
       </h1>
 

@@ -36,9 +36,9 @@ def login(body: LoginIn, db: Session = Depends(get_db)):
 def request_otp(body: OtpRequestIn, background: BackgroundTasks, db: Session = Depends(get_db)):
     email = body.email.lower()
     code = otp.issue(db, email)
+    subject, message = mail.otp_verification(code)
     background.add_task(
-        mail.send_email, email, "Your Lu's Shoe Farm sign-in code",
-        f"Your code is {code}. It expires in 10 minutes. If you didn't ask for it, ignore this email.\n",
+        mail.send_email, email, subject, message
     )
     return {"sent": True}  # same answer whether or not the account exists
 
